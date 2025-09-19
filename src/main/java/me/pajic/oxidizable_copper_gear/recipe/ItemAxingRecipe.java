@@ -1,5 +1,6 @@
 package me.pajic.oxidizable_copper_gear.recipe;
 
+import me.pajic.oxidizable_copper_gear.Main;
 import me.pajic.oxidizable_copper_gear.data.CommonData;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -12,9 +13,9 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class ItemDewaxingRecipe extends CustomRecipe {
+public class ItemAxingRecipe extends CustomRecipe {
 
-    public ItemDewaxingRecipe(CraftingBookCategory category) {
+    public ItemAxingRecipe(CraftingBookCategory category) {
         super(category);
     }
 
@@ -24,6 +25,7 @@ public class ItemDewaxingRecipe extends CustomRecipe {
             return false;
         } else {
             boolean hasDewaxableItem = false;
+            boolean hasOxidizableItem = false;
             boolean hasAxe = false;
 
             for (int i = 0; i < input.size(); i++) {
@@ -33,14 +35,19 @@ public class ItemDewaxingRecipe extends CustomRecipe {
                         if (hasAxe) return false;
                         hasAxe = true;
                     } else {
-                        if (!itemStack.is(CommonData.OXIDIZABLE) || !itemStack.has(CommonData.WAXED)) return false;
-                        if (hasDewaxableItem) return false;
-                        hasDewaxableItem = true;
+                        if (!itemStack.is(CommonData.OXIDIZABLE)) return false;
+                        if (hasDewaxableItem || hasOxidizableItem) return false;
+                        if (itemStack.has(CommonData.WAXED)) hasDewaxableItem = true;
+                        else hasOxidizableItem = true;
                     }
                 }
             }
 
-            return hasDewaxableItem && hasAxe;
+            Main.debugLog(
+                    "hasDewaxableItem {} hasOxidizableItem {} hasAxe {}",
+                    hasDewaxableItem, hasOxidizableItem, hasAxe
+            );
+            return hasAxe && (hasDewaxableItem || hasOxidizableItem);
         }
     }
 
@@ -49,11 +56,25 @@ public class ItemDewaxingRecipe extends CustomRecipe {
         ItemStack itemStack = ItemStack.EMPTY;
         for (int i = 0; i < input.size(); i++) {
             ItemStack itemStack2 = input.getItem(i);
-            if (itemStack2.is(CommonData.OXIDIZABLE) && itemStack2.has(CommonData.WAXED)) {
-                itemStack = itemStack2.copy();
-                itemStack.remove(CommonData.WAXED);
+            Main.debugLog(
+                    "itemStack {} oxidizable {} waxed {}",
+                    itemStack2.getHoverName().getString(),
+                    itemStack2.is(CommonData.OXIDIZABLE),
+                    itemStack2.has(CommonData.WAXED)
+            );
+            if (itemStack2.is(CommonData.OXIDIZABLE)) {
+                if (itemStack2.has(CommonData.WAXED)) {
+                    itemStack = itemStack2.copy();
+                    itemStack.remove(CommonData.WAXED);
+                    Main.debugLog("unwaxing {}", itemStack.getHoverName().getString());
+                } else if (itemStack2.getOrDefault(CommonData.OXIDATION, 0) > 0) {
+                    itemStack = itemStack2.copy();
+                    itemStack.set(CommonData.OXIDATION, itemStack2.getOrDefault(CommonData.OXIDATION, 0) - 1);
+                    Main.debugLog("reducing oxidation on {}", itemStack.getHoverName().getString());
+                }
             }
         }
+        Main.debugLog("returning {}", itemStack.getHoverName().getString());
         return itemStack;
     }
 
@@ -73,6 +94,6 @@ public class ItemDewaxingRecipe extends CustomRecipe {
 
     @Override
     public @NotNull RecipeSerializer<? extends CustomRecipe> getSerializer() {
-        return CommonData.ITEM_DEWAXING;
+        return CommonData.ITEM_AXING;
     }
 }

@@ -79,7 +79,7 @@ publishMods {
 
     modrinth {
         accessToken = providers.environmentVariable("MR_KEY")
-        projectId = "projectId"
+        projectId = "sb4B6v2K"
         minecraftVersions.add(stonecutter.current.version)
         requires("fabric-api")
     }

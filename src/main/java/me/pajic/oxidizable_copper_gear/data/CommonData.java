@@ -2,7 +2,7 @@ package me.pajic.oxidizable_copper_gear.data;
 
 import com.mojang.serialization.Codec;
 import me.pajic.oxidizable_copper_gear.Main;
-import me.pajic.oxidizable_copper_gear.recipe.ItemDewaxingRecipe;
+import me.pajic.oxidizable_copper_gear.recipe.ItemAxingRecipe;
 import me.pajic.oxidizable_copper_gear.recipe.ItemWaxingRecipe;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentType;
@@ -34,10 +34,10 @@ public class CommonData {
             "crafting_special_item_waxing",
             new CustomRecipe.Serializer<>(ItemWaxingRecipe::new)
     );
-    public static RecipeSerializer<ItemDewaxingRecipe> ITEM_DEWAXING = Registry.register(
+    public static RecipeSerializer<ItemAxingRecipe> ITEM_AXING = Registry.register(
             BuiltInRegistries.RECIPE_SERIALIZER,
-            "crafting_special_item_dewaxing",
-            new CustomRecipe.Serializer<>(ItemDewaxingRecipe::new)
+            "crafting_special_item_axing",
+            new CustomRecipe.Serializer<>(ItemAxingRecipe::new)
     );
 
     public static void init() {}
