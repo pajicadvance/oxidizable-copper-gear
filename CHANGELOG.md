@@ -1,1 +1,1 @@
-- Initial release.
+- Fixed bugs with crafting table recipes for dewaxing and reducing oxidation.
