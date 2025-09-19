@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.pajic.oxidizable_copper_gear.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ItemEntityMixin",
+    "ItemMixin",
+    "ItemStackMixin"
+  ],
+  "client": [
+    "HumanoidArmorLayerMixin",
+    "SimpleEquipmentLayerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

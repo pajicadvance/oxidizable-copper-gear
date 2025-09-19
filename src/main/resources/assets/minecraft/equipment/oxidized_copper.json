@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "minecraft:oxidized_copper"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "minecraft:oxidized_copper"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "minecraft:oxidized_copper"
+      }
+    ]
+  }
+}

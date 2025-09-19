@@ -12,8 +12,6 @@ base {
 
 repositories {
     maven { url = "https://maven.parchmentmc.org" }
-    maven { url = "https://maven.terraformersmc.com/" }
-    maven { url = "https://maven.fzzyhmstrs.me/"}
     exclusiveContent {
         forRepository {
             maven {
@@ -35,8 +33,6 @@ dependencies {
     }
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${property("fabric_version")}"
-    modImplementation "com.terraformersmc:modmenu:${property("modmenu_version")}"
-    modImplementation "me.fzzyhmstrs:fzzy_config:${property("fzzy_version")}"
 }
 
 processResources {
@@ -86,8 +82,6 @@ publishMods {
         projectId = "projectId"
         minecraftVersions.add(stonecutter.current.version)
         requires("fabric-api")
-        requires("fzzy-config")
-        optional("modmenu")
     }
 
     curseforge {
@@ -98,7 +92,5 @@ publishMods {
         clientRequired = true
         serverRequired = true
         requires("fabric-api")
-        requires("fzzy-config")
-        optional("modmenu")
     }
 }

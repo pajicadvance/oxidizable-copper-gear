@@ -1,0 +1,7 @@
+{
+  "text.oxidizable_copper_gear.exposed_prefix": "Exposed ",
+  "text.oxidizable_copper_gear.weathered_prefix": "Weathered ",
+  "text.oxidizable_copper_gear.oxidized_prefix": "Oxidized ",
+  "text.oxidizable_copper_gear.waxed_prefix": "Waxed ",
+  "tag.item.oxidizable_copper_gear.oxidizable": "Oxidizable"
+}

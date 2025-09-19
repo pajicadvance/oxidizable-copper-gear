@@ -1,29 +1,25 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "oxidizable_copper_gear",
   "version": "${version}",
-  "name": "modname",
-  "description": "",
-  "authors": [],
+  "name": "Oxidizable Copper Gear",
+  "description": "Adds oxidation mechanics to copper tools and armor and allows waxing them",
+  "authors": ["pajic", "Moonkey"],
   "contact": {},
   "license": "MIT",
   "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "me.pajic.modid.ClientMain"
-    ],
     "main": [
-      "me.pajic.modid.Main"
+      "me.pajic.oxidizable_copper_gear.Main"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "oxidizable_copper_gear.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
-    "minecraft": "${minecraft_version}",
-    "fzzy_config": "*"
+    "minecraft": ">=1.21.9-beta.1 <1.22"
   }
 }
