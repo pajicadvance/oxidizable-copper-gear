@@ -15,7 +15,7 @@ public class Oxidizer {
     // 0.02844444F: vanilla chance to oxidize copper related blocks on random tick divided by two
     public static ObjectBooleanPair<ItemStack> tryOxidize(ItemStack stack, RandomSource random, boolean copy) {
         if (stack.is(CommonData.OXIDIZABLE) && !stack.has(CommonData.WAXED) && random.nextFloat() < 0.00083333F) {
-            int oxidation = stack.getOrDefault(CommonData.OXIDATION, 0);
+            int oxidation = CommonData.getItemOxidation(stack);
             if (oxidation < 3) {
                 float chanceModifier = stack.isDamageableItem() ? Mth.clampedMap(
                         stack.getMaxDamage() - stack.getDamageValue(),
@@ -30,10 +30,10 @@ public class Oxidizer {
                     );
                     if (copy) {
                         ItemStack updatedStack = stack.copy();
-                        updatedStack.set(CommonData.OXIDATION, oxidation + 1);
+                        CommonData.incrementItemOxidation(updatedStack, 1);
                         return new ObjectBooleanImmutablePair<>(updatedStack, true);
                     } else {
-                        stack.set(CommonData.OXIDATION, oxidation + 1);
+                        CommonData.incrementItemOxidation(stack, 1);
                     }
                 }
             }

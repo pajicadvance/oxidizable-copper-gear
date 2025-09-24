@@ -16,7 +16,7 @@ public abstract class ItemStackMixin implements DataComponentHolder {
             at = @At("RETURN")
     )
     private Component addOxidationPrefix(Component original) {
-        Component name = switch (getOrDefault(CommonData.OXIDATION, 0)) {
+        Component name = switch (CommonData.getItemOxidation((ItemStack) (Object) this)) {
             case 1 -> Component.translatable("text.oxidizable_copper_gear.exposed_prefix").append(original);
             case 2 -> Component.translatable("text.oxidizable_copper_gear.weathered_prefix").append(original);
             case 3 -> Component.translatable("text.oxidizable_copper_gear.oxidized_prefix").append(original);

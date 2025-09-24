@@ -13,7 +13,7 @@ public class ClientData {
 
     public static ResourceKey<EquipmentAsset> getAssetId(ItemStack stack, ResourceKey<EquipmentAsset> original) {
         if (stack.is(CommonData.OXIDIZABLE)) {
-            return switch (stack.getOrDefault(CommonData.OXIDATION, 0)) {
+            return switch (CommonData.getItemOxidation(stack)) {
                 case 1 -> EXPOSED_COPPER;
                 case 2 -> WEATHERED_COPPER;
                 case 3 -> OXIDIZED_COPPER;

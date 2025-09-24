@@ -9,7 +9,9 @@ import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.Mth;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
@@ -41,4 +43,14 @@ public class CommonData {
     );
 
     public static void init() {}
+
+    public static int getItemOxidation(ItemStack stack) {
+        return stack.getOrDefault(OXIDATION, 0);
+    }
+
+    public static void incrementItemOxidation(ItemStack stack, int increment) {
+        int updatedOxidation = getItemOxidation(stack) + increment;
+        if (updatedOxidation <= 0) stack.remove(OXIDATION);
+        else stack.set(OXIDATION, Mth.clamp(updatedOxidation, 1, 3));
+    }
 }

@@ -67,9 +67,9 @@ public class ItemAxingRecipe extends CustomRecipe {
                     itemStack = itemStack2.copy();
                     itemStack.remove(CommonData.WAXED);
                     Main.debugLog("unwaxing {}", itemStack.getHoverName().getString());
-                } else if (itemStack2.getOrDefault(CommonData.OXIDATION, 0) > 0) {
+                } else if (CommonData.getItemOxidation(itemStack2) > 0) {
                     itemStack = itemStack2.copy();
-                    itemStack.set(CommonData.OXIDATION, itemStack2.getOrDefault(CommonData.OXIDATION, 0) - 1);
+                    CommonData.incrementItemOxidation(itemStack, -1);
                     Main.debugLog("reducing oxidation on {}", itemStack.getHoverName().getString());
                 }
             }

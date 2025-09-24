@@ -86,7 +86,7 @@ publishMods {
 
     curseforge {
         accessToken = providers.environmentVariable("CF_KEY")
-        projectId = "projectId"
+        projectId = "1349654"
         minecraftVersions.add(stonecutter.current.version)
         javaVersions.add(JavaVersion.VERSION_21)
         clientRequired = true
