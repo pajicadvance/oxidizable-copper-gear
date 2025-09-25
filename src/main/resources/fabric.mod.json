@@ -12,6 +12,9 @@
   "entrypoints": {
     "main": [
       "me.pajic.oxidizable_copper_gear.Main"
+    ],
+    "client": [
+      "me.pajic.oxidizable_copper_gear.ClientMain"
     ]
   },
   "mixins": [

@@ -3,8 +3,11 @@ package me.pajic.oxidizable_copper_gear;
 import me.pajic.oxidizable_copper_gear.data.CommonData;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import org.slf4j.Logger;
@@ -19,6 +22,15 @@ public class Main implements ModInitializer {
     @Override
     public void onInitialize() {
         CommonData.init();
+
+        FabricLoader.getInstance().getModContainer(MOD_ID).ifPresent(modContainer ->
+            ResourceManagerHelper.registerBuiltinResourcePack(
+                    withModNamespace("default_dp"),
+                    modContainer,
+                    Component.literal("Oxidizable Copper Gear Default Pack"),
+                    ResourcePackActivationType.DEFAULT_ENABLED
+            )
+        );
 
         ItemGroupEvents.MODIFY_ENTRIES_ALL.register((tabs, entries) ->
                 BuiltInRegistries.ITEM.getTagOrEmpty(CommonData.OXIDIZABLE).forEach(item -> {
