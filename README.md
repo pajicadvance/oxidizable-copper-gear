@@ -1,6 +1,6 @@
 # Oxidizable Copper Gear
 
-This mod makes copper tools and armor oxidize over time, much like copper blocks.
+This mod makes copper tools and armor oxidize over time, much like copper blocks. Can also be used as a framework to make any item oxidizable.
 
 ![items](https://cdn.modrinth.com/data/cached_images/c2a7f0b904525ca6fabebc881bf96b0e7eb876a1.png)
 
@@ -21,6 +21,11 @@ Crafting recipes:
 
 ## Adding your own oxidizable items
 
-Any item can be made oxidizable by creating a data pack and resource pack.
-- In the data pack, add your items to the `oxidizable` item tag from this mod ([example](https://github.com/pajicadvance/oxidizable-copper-gear/tree/fabric/src/main/resources/resourcepacks/default_dp)). This just tells the mod that it should make your items oxidizable and waxable.
-- In the resource pack, add models and textures for oxidation stages of your items ([example](https://github.com/pajicadvance/oxidizable-copper-gear/tree/fabric/src/main/resources/resourcepacks/default_rp)). All the assets must be in the default `minecraft` namespace.
+This mod can also be used as a framework to make any item oxidizable by creating a data pack and resource pack. The default data pack which makes copper tools and armor oxidizable can be disabled like any other data pack if desired.
+- In the data pack, add your items to the `oxidizable` item tag from this mod ([example](https://github.com/pajicadvance/oxidizable-copper-gear/tree/fabric/src/main/resources/resourcepacks/default_dp)). This tells the mod to:
+  - Make your items oxidize over time
+  - Allow oxidation-related crafting recipes to be used on your items
+  - Add exposed, weathered, oxidized and waxed variants of your items to creative tabs
+- In the resource pack, add models and textures for oxidation stages of your items ([example](https://github.com/pajicadvance/oxidizable-copper-gear/tree/fabric/src/main/resources/resourcepacks/default_rp)).
+  - The `items` folder has to be under the namespace of the mod which adds the item you're adding assets for, or the `minecraft` namespace in case of vanilla items, as you're overriding the original files.
+  - Models and textures can be under any namespace, but this mod's namespace is recommended (`oxidizable_copper_gear`).

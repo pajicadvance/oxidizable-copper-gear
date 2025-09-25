@@ -8,21 +8,21 @@
         "when": 1,
         "model": {
           "type": "minecraft:model",
-          "model": "minecraft:item/exposed_copper_sword"
+          "model": "oxidizable_copper_gear:item/exposed_copper_sword"
         }
       },
       {
         "when": 2,
         "model": {
           "type": "minecraft:model",
-          "model": "minecraft:item/weathered_copper_sword"
+          "model": "oxidizable_copper_gear:item/weathered_copper_sword"
         }
       },
       {
         "when": 3,
         "model": {
           "type": "minecraft:model",
-          "model": "minecraft:item/oxidized_copper_sword"
+          "model": "oxidizable_copper_gear:item/oxidized_copper_sword"
         }
       }
     ],

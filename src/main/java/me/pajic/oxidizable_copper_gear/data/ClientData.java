@@ -1,5 +1,6 @@
 package me.pajic.oxidizable_copper_gear.data;
 
+import me.pajic.oxidizable_copper_gear.Main;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.equipment.EquipmentAsset;
@@ -7,9 +8,15 @@ import net.minecraft.world.item.equipment.EquipmentAssets;
 
 public class ClientData {
 
-    private static final ResourceKey<EquipmentAsset> EXPOSED_COPPER = EquipmentAssets.createId("exposed_copper");
-    private static final ResourceKey<EquipmentAsset> WEATHERED_COPPER = EquipmentAssets.createId("weathered_copper");
-    private static final ResourceKey<EquipmentAsset> OXIDIZED_COPPER = EquipmentAssets.createId("oxidized_copper");
+    private static final ResourceKey<EquipmentAsset> EXPOSED_COPPER = ResourceKey.create(
+            EquipmentAssets.ROOT_ID, Main.withModNamespace("exposed_copper")
+    );
+    private static final ResourceKey<EquipmentAsset> WEATHERED_COPPER = ResourceKey.create(
+            EquipmentAssets.ROOT_ID, Main.withModNamespace("weathered_copper")
+    );
+    private static final ResourceKey<EquipmentAsset> OXIDIZED_COPPER = ResourceKey.create(
+            EquipmentAssets.ROOT_ID, Main.withModNamespace("oxidized_copper")
+    );
 
     public static ResourceKey<EquipmentAsset> getAssetId(ItemStack stack, ResourceKey<EquipmentAsset> original) {
         if (stack.is(CommonData.OXIDIZABLE)) {
