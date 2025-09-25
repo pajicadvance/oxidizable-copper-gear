@@ -22,5 +22,5 @@ Crafting recipes:
 ## Adding your own oxidizable items
 
 Any item can be made oxidizable by creating a data pack and resource pack.
-- In the data pack, add your items to the `oxidizable` item tag from this mod ([example](https://github.com/pajicadvance/oxidizable-copper-gear/tree/fabric/src/main/resources/resourcepacks/default_dp)).
+- In the data pack, add your items to the `oxidizable` item tag from this mod ([example](https://github.com/pajicadvance/oxidizable-copper-gear/tree/fabric/src/main/resources/resourcepacks/default_dp)). This just tells the mod that it should make your items oxidizable and waxable.
 - In the resource pack, add models and textures for oxidation stages of your items ([example](https://github.com/pajicadvance/oxidizable-copper-gear/tree/fabric/src/main/resources/resourcepacks/default_rp)). All the assets must be in the default `minecraft` namespace.
