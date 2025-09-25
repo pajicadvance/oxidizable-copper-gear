@@ -18,3 +18,9 @@ Crafting recipes:
 ![waxing](https://cdn.modrinth.com/data/cached_images/3424cc28065c4e5692f8b2d5fa4116d6735afbcc.png)
 ![dewaxing](https://cdn.modrinth.com/data/cached_images/8b17c8abb3b3ffc837222ec515a46e54b599e7bd.png)
 ![reducing oxidation](https://cdn.modrinth.com/data/cached_images/5b03df3b7739f4c7973c2145fac37a597dfb376f.png)
+
+## Adding your own oxidizable items
+
+Any item can be made oxidizable by creating a data pack and resource pack.
+- In the data pack, add your items to the `oxidizable` item tag from this mod ([example](https://github.com/pajicadvance/oxidizable-copper-gear/tree/fabric/src/main/resources/resourcepacks/default_dp)).
+- In the resource pack, add models and textures for oxidation stages of your items ([example](https://github.com/pajicadvance/oxidizable-copper-gear/tree/fabric/src/main/resources/resourcepacks/default_rp)). All the assets must be in the default `minecraft` namespace.
