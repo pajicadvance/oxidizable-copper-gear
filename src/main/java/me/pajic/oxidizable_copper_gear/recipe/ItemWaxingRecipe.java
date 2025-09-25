@@ -1,6 +1,6 @@
 package me.pajic.oxidizable_copper_gear.recipe;
 
-import me.pajic.oxidizable_copper_gear.data.CommonData;
+import me.pajic.oxidizable_copper_gear.Main;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -32,7 +32,7 @@ public class ItemWaxingRecipe extends CustomRecipe {
                         if (hasHoneycomb) return false;
                         hasHoneycomb = true;
                     } else {
-                        if (!itemStack.is(CommonData.OXIDIZABLE) || itemStack.has(CommonData.WAXED)) return false;
+                        if (!itemStack.is(Main.OXIDIZABLE) || itemStack.has(Main.WAXED)) return false;
                         if (hasWaxableItem) return false;
                         hasWaxableItem = true;
                     }
@@ -48,9 +48,9 @@ public class ItemWaxingRecipe extends CustomRecipe {
         ItemStack itemStack = ItemStack.EMPTY;
         for (int i = 0; i < input.size(); i++) {
             ItemStack itemStack2 = input.getItem(i);
-            if (itemStack2.is(CommonData.OXIDIZABLE)) {
+            if (itemStack2.is(Main.OXIDIZABLE)) {
                 itemStack = itemStack2.copy();
-                itemStack.set(CommonData.WAXED, true);
+                itemStack.set(Main.WAXED, true);
             }
         }
         return itemStack;
@@ -58,6 +58,6 @@ public class ItemWaxingRecipe extends CustomRecipe {
 
     @Override
     public @NotNull RecipeSerializer<? extends CustomRecipe> getSerializer() {
-        return CommonData.ITEM_WAXING;
+        return Main.ITEM_WAXING;
     }
 }

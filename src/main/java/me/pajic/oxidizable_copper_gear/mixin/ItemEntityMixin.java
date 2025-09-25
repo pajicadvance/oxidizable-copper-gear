@@ -1,7 +1,7 @@
 package me.pajic.oxidizable_copper_gear.mixin;
 
 import it.unimi.dsi.fastutil.objects.ObjectBooleanPair;
-import me.pajic.oxidizable_copper_gear.handler.Oxidizer;
+import me.pajic.oxidizable_copper_gear.Main;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -31,7 +31,7 @@ public abstract class ItemEntityMixin extends Entity {
             at = @At("TAIL")
     )
     private void oxidizeDroppedCopperGear(CallbackInfo ci) {
-        ObjectBooleanPair<ItemStack> updatedStack = Oxidizer.tryOxidize(getItem(), level().getRandom(), true);
+        ObjectBooleanPair<ItemStack> updatedStack = Main.tryOxidize(getItem(), level().getRandom(), true);
         if (updatedStack.rightBoolean()) setItem(updatedStack.left());
     }
 }

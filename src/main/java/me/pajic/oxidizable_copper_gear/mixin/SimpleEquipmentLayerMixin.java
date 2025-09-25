@@ -1,11 +1,12 @@
 package me.pajic.oxidizable_copper_gear.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import me.pajic.oxidizable_copper_gear.data.ClientData;
+import me.pajic.oxidizable_copper_gear.ClientMain;
 import net.minecraft.client.renderer.entity.layers.SimpleEquipmentLayer;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.equipment.EquipmentAsset;
+import net.minecraft.world.item.equipment.Equippable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -23,8 +24,9 @@ public class SimpleEquipmentLayerMixin {
     )
     private ResourceKey<EquipmentAsset> handleCopperArmorOxidation(
             ResourceKey<EquipmentAsset> original,
-            @Local ItemStack stack
+            @Local ItemStack stack,
+            @Local Equippable equippable
     ) {
-        return ClientData.getAssetId(stack, original);
+        return ClientMain.getAssetId(stack, equippable, original);
     }
 }

@@ -2,7 +2,7 @@ package me.pajic.oxidizable_copper_gear.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import me.pajic.oxidizable_copper_gear.handler.Oxidizer;
+import me.pajic.oxidizable_copper_gear.Main;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -15,7 +15,7 @@ public class ItemMixin {
 
     @WrapMethod(method = "inventoryTick")
     private void oxidizePlayerCopperGear(ItemStack stack, ServerLevel level, Entity entity, EquipmentSlot slot, Operation<Void> original) {
-        Oxidizer.tryOxidize(stack, level.getRandom(), false);
+        Main.tryOxidize(stack, level.getRandom(), false);
         original.call(stack, level, entity, slot);
     }
 }
