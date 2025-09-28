@@ -3,7 +3,7 @@
   "id": "oxidizable_copper_gear",
   "version": "${version}",
   "name": "Oxidizable Copper Gear",
-  "description": "Adds oxidation mechanics to copper tools and armor and allows waxing them",
+  "description": "Adds oxidation and waxing mechanics to copper tools and armor",
   "authors": ["pajic", "Moonkey"],
   "contact": {},
   "license": "MIT",

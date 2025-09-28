@@ -31,7 +31,7 @@ public abstract class ItemEntityMixin extends Entity {
             at = @At("TAIL")
     )
     private void oxidizeDroppedCopperGear(CallbackInfo ci) {
-        ObjectBooleanPair<ItemStack> updatedStack = Main.tryOxidize(getItem(), level().getRandom(), true);
+        ObjectBooleanPair<ItemStack> updatedStack = Main.tryOxidize(getItem(), level().getDayTime(), level().getRandom(), true);
         if (updatedStack.rightBoolean()) setItem(updatedStack.left());
     }
 }

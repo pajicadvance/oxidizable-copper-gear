@@ -8,16 +8,18 @@ Items will oxidize while they're in your inventory, equipped, or dropped on the 
 
 ![ingame items](https://cdn.modrinth.com/data/cached_images/b03f6e18ee74b85376d31554c4121cccd5864a41.png)
 
-Oxidization speed is very similar to the speed copper blocks oxidize at. It's also affected by the durability of the item, depending on how much the item durability differs from the current oxidation state.
+Oxidization speed is similar to the speed copper blocks oxidize at. It's also increased depending on how much the item durability differs from the current oxidation state.
 
 Crafting recipes:
-- Items can be waxed by combining them with honeycomb in the crafting table.
-- Items can be dewaxed by combining them with any axe in the crafting table, where the axe will remain and take one durability damage.
-- Oxidation on items can be reduced by combining them with any axe in the crafting table, where the axe will remain and take one durability damage.
+- Items can be waxed by combining them with honeycomb.
 
-![waxing](https://cdn.modrinth.com/data/cached_images/3424cc28065c4e5692f8b2d5fa4116d6735afbcc.png)
-![dewaxing](https://cdn.modrinth.com/data/cached_images/8b17c8abb3b3ffc837222ec515a46e54b599e7bd.png)
-![reducing oxidation](https://cdn.modrinth.com/data/cached_images/5b03df3b7739f4c7973c2145fac37a597dfb376f.png)
+  ![waxing](https://cdn.modrinth.com/data/cached_images/3424cc28065c4e5692f8b2d5fa4116d6735afbcc.png)
+- Items can be dewaxed by combining them with any axe, where the axe will remain and take one durability damage.
+
+  ![dewaxing](https://cdn.modrinth.com/data/cached_images/8b17c8abb3b3ffc837222ec515a46e54b599e7bd.png)
+- Oxidation on items can be reduced by combining them with any axe, where the axe will remain and take one durability damage.
+
+  ![reducing oxidation](https://cdn.modrinth.com/data/cached_images/5b03df3b7739f4c7973c2145fac37a597dfb376f.png)
 
 ## Adding your own oxidizable items
 

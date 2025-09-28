@@ -15,7 +15,7 @@ public class ItemMixin {
 
     @WrapMethod(method = "inventoryTick")
     private void oxidizePlayerCopperGear(ItemStack stack, ServerLevel level, Entity entity, EquipmentSlot slot, Operation<Void> original) {
-        Main.tryOxidize(stack, level.getRandom(), false);
+        Main.tryOxidize(stack, level.getDayTime(), level.getRandom(), false);
         original.call(stack, level, entity, slot);
     }
 }

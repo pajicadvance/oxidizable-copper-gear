@@ -90,20 +90,17 @@ public class Main implements ModInitializer {
         );
     }
 
-    // magic numbers:
-    // 0.00083333F: 1 / 1200, attempt to oxidize every 1200 ticks/60 seconds on average
-    // 0.02844444F: vanilla chance to oxidize copper related blocks on random tick divided by two
-    public static ObjectBooleanPair<ItemStack> tryOxidize(ItemStack stack, RandomSource random, boolean copy) {
-        if (stack.is(OXIDIZABLE) && !stack.has(WAXED) && random.nextFloat() < 0.00083333F) {
+    public static ObjectBooleanPair<ItemStack> tryOxidize(ItemStack stack, long worldTime, RandomSource random, boolean copy) {
+        if (stack.is(OXIDIZABLE) && !stack.has(WAXED) && worldTime % 1200 == 0) {
             int oxidation = getItemOxidation(stack);
             if (oxidation < 3) {
                 float chanceModifier = stack.isDamageableItem() ? Mth.clampedMap(
                         stack.getMaxDamage() - stack.getDamageValue(),
-                        stack.getMaxDamage() * ((float) (3 - oxidation) / 4F),
+                        stack.getMaxDamage() * ((float) (2 - oxidation) / 4F),
                         stack.getMaxDamage() * ((float) (4 - oxidation) / 4F),
-                        0.5F, 1
+                        0.5F, 2
                 ) : 1;
-                if (random.nextFloat() < 0.02844444F / chanceModifier) {
+                if (random.nextFloat() < (32F / 1125) / chanceModifier) {
                     debugLog(
                             "Ticking oxidation for item {}, chance modifier was {}",
                             stack.getHoverName().getString(), chanceModifier
