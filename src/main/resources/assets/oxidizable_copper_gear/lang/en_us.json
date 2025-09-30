@@ -1,7 +1,7 @@
 {
-  "text.oxidizable_copper_gear.exposed_prefix": "Exposed ",
-  "text.oxidizable_copper_gear.weathered_prefix": "Weathered ",
-  "text.oxidizable_copper_gear.oxidized_prefix": "Oxidized ",
-  "text.oxidizable_copper_gear.waxed_prefix": "Waxed ",
+  "text.oxidizable_copper_gear.exposed": "Exposed %s",
+  "text.oxidizable_copper_gear.weathered": "Weathered %s",
+  "text.oxidizable_copper_gear.oxidized": "Oxidized %s",
+  "text.oxidizable_copper_gear.waxed": "Waxed %s",
   "tag.item.oxidizable_copper_gear.oxidizable": "Oxidizable"
 }

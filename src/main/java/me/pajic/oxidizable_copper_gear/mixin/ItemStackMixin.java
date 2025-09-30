@@ -17,11 +17,11 @@ public abstract class ItemStackMixin implements DataComponentHolder {
     )
     private Component addOxidationPrefix(Component original) {
         Component name = switch (Main.getItemOxidation((ItemStack) (Object) this)) {
-            case 1 -> Component.translatable("text.oxidizable_copper_gear.exposed_prefix").append(original);
-            case 2 -> Component.translatable("text.oxidizable_copper_gear.weathered_prefix").append(original);
-            case 3 -> Component.translatable("text.oxidizable_copper_gear.oxidized_prefix").append(original);
+            case 1 -> Component.translatable("text.oxidizable_copper_gear.exposed", original);
+            case 2 -> Component.translatable("text.oxidizable_copper_gear.weathered", original);
+            case 3 -> Component.translatable("text.oxidizable_copper_gear.oxidized", original);
             default -> original;
         };
-        return has(Main.WAXED) ? Component.translatable("text.oxidizable_copper_gear.waxed_prefix").append(name) : name;
+        return has(Main.WAXED) ? Component.translatable("text.oxidizable_copper_gear.waxed", name) : name;
     }
 }
