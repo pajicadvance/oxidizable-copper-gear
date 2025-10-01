@@ -87,17 +87,12 @@ public class Main {
         if (event.getTabKey() != CreativeModeTabs.SEARCH) BuiltInRegistries.ITEM.getTagOrEmpty(OXIDIZABLE).forEach(item -> {
             ItemStack originalItem = new ItemStack(item);
             if (event.getParentEntries().contains(originalItem)) {
-                debugLog("item " + originalItem.getItemName().getString());
-                debugLog("tab " + event.getTab().getDisplayName().getString());
                 for (int i = 3; i > 0; i--) {
-                    debugLog("oxidation {}", i);
                     ItemStack oxidizedItem = new ItemStack(item);
                     oxidizedItem.set(OXIDATION, i);
                     ItemStack waxedOxidizedItem = oxidizedItem.copy();
                     waxedOxidizedItem.set(WAXED, true);
-                    debugLog("{}", waxedOxidizedItem.getItemName().getString());
                     event.insertAfter(originalItem, waxedOxidizedItem, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                    debugLog("{}", oxidizedItem.getItemName().getString());
                     event.insertAfter(originalItem, oxidizedItem, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 }
                 ItemStack waxedItem = originalItem.copy();
