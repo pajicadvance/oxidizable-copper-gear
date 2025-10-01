@@ -10,8 +10,6 @@ version = mod_version + "+" + stonecutter.current.version
 group = mod_group_id
 
 repositories {
-    maven {url = "https://maven.fzzyhmstrs.me/"}
-    maven {url = "https://thedarkcolour.github.io/KotlinForForge/"}
 }
 
 base {
@@ -59,7 +57,6 @@ configurations {
 }
 
 dependencies {
-    implementation "me.fzzyhmstrs:fzzy_config:${property("fzzy_version")}+neoforge"
 }
 
 tasks.withType(ProcessResources).configureEach {
@@ -102,18 +99,16 @@ publishMods {
 
     modrinth {
         accessToken = providers.environmentVariable("MR_KEY")
-        projectId = "projectId"
+        projectId = "sb4B6v2K"
         minecraftVersions.add(stonecutter.current.version)
-        requires("fzzy-config")
     }
 
     curseforge {
         accessToken = providers.environmentVariable("CF_KEY")
-        projectId = "projectId"
+        projectId = "1349654"
         minecraftVersions.add(stonecutter.current.version)
         javaVersions.add(JavaVersion.VERSION_21)
         clientRequired = true
         serverRequired = true
-        requires("fzzy-config")
     }
 }
