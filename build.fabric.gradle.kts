@@ -19,18 +19,10 @@ platform {
 		required("fabricloader") {
 			versionRange = ">=${libs.fabric.loader.get().version}"
 		}
-		required("fzzy_config") {
-			slug("fzzy-config")
-			versionRange = "*"
-		}
-		optional("modmenu") {
-			slug("modmenu")
-		}
 	}
 }
 
 loom {
-	accessWidenerPath = rootProject.file("src/main/resources/aw/${stonecutter.current.version}.accesswidener")
 	runs.named("client") {
 		client()
 		ideConfigGenerated(true)
@@ -49,12 +41,7 @@ loom {
 }
 
 stonecutter {
-	filters.exclude("**/*.accesswidener", "**/*.cfg")
 	val dir = eval(current.version, ">1.21.10")
-	replacements.string {
-		direction = dir
-		replace("ValidatedIdentifier", "ValidatedIdentifier")
-	}
 	replacements.string {
 		direction = dir
 		replace("ResourceLocation", "Identifier")
@@ -69,14 +56,6 @@ fletchingTable {
 
 repositories {
 	maven("https://maven.parchmentmc.org") { name = "ParchmentMC" }
-	maven("https://maven.fzzyhmstrs.me/") { name = "Fzzy Config" }
-	maven("https://maven.terraformersmc.com/" ) { name = "TerraformersMC" }
-	maven("https://thedarkcolour.github.io/KotlinForForge/") { name = "KotlinForForge" }
-	maven("https://jitpack.io") { name = "Jitpack" }
-	exclusiveContent {
-		forRepository { maven("https://api.modrinth.com/maven") { name = "Modrinth" } }
-		filter { includeGroup("maven.modrinth") }
-	}
 }
 
 dependencies {
@@ -89,14 +68,4 @@ dependencies {
 		})
 	modImplementation(libs.fabric.loader)
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${prop("deps.fabric-api")}")
-	modImplementation("me.fzzyhmstrs:fzzy_config:${prop("deps.fzzy_config")}")
-	modImplementation("com.terraformersmc:modmenu:${prop("deps.modmenu")}")
-	implementation("com.moulberry:mixinconstraints:${prop("deps.mixinconstraints")}")
-	include("com.moulberry:mixinconstraints:${prop("deps.mixinconstraints")}")
-	modImplementation("com.github.ramixin:mixson-fabric:${prop("deps.mixson")}") {
-		exclude(group = "net.fabricmc.fabric-api", module = "fabric-api")
-	}
-	include("com.github.ramixin:mixson-fabric:${prop("deps.mixson")}") {
-		exclude(group = "net.fabricmc.fabric-api", module = "fabric-api")
-	}
 }
