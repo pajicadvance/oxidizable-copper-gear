@@ -20,11 +20,8 @@ public abstract class ItemEntityMixin extends Entity {
         super(entityType, level);
     }
 
-    @Shadow
-    public abstract ItemStack getItem();
-
-    @Shadow
-    public abstract void setItem(ItemStack stack);
+    @Shadow public abstract ItemStack getItem();
+    @Shadow public abstract void setItem(ItemStack itemStack);
 
     @SuppressWarnings("resource")
 	@Inject(
@@ -32,7 +29,8 @@ public abstract class ItemEntityMixin extends Entity {
             at = @At("TAIL")
     )
     private void oxidizeDroppedCopperGear(CallbackInfo ci) {
-        ObjectBooleanPair<ItemStack> updatedStack = CommonUtil.tryOxidize(getItem(), level().getDayTime(), level().getRandom(), true);
+        if (level().isClientSide()) return;
+        ObjectBooleanPair<ItemStack> updatedStack = CommonUtil.tryOxidize(getItem(), level().getGameTime(), level().getRandom(), true);
         if (updatedStack.rightBoolean()) setItem(updatedStack.left());
     }
 }

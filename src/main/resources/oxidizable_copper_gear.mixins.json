@@ -1,10 +1,13 @@
 {
-  "package": "me.pajic.oxidizable_copper_gear.mixin",
   "required": true,
+  "package": "me.pajic.oxidizable_copper_gear.mixin",
   "minVersion": "0.8",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "${java}",
   "injectors": {
     "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
   },
   "mixins": [],
   "client": []

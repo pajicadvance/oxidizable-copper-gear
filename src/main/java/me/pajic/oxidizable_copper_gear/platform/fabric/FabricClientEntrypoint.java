@@ -2,29 +2,33 @@ package me.pajic.oxidizable_copper_gear.platform.fabric;
 
 //? fabric {
 
+import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
 import me.pajic.oxidizable_copper_gear.OCG;
-import me.pajic.oxidizable_copper_gear.platform.Platform;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.network.chat.Component;
 
-@SuppressWarnings("unused")
+//? <26.1 {
+/*import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+*///?} else {
+import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
+import net.fabricmc.fabric.api.resource.v1.pack.PackActivationType;
+//?}
+
+@Entrypoint("client")
 public class FabricClientEntrypoint implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		initDefaultResourcePack();
-	}
-
-	private void initDefaultResourcePack() {
-		FabricLoader.getInstance().getModContainer(OCG.MOD_ID).ifPresent(modContainer ->
-				ResourceManagerHelper.registerBuiltinResourcePack(
-						OCG.id(OCG.xplat().packPath(Platform.VersionedPackType.ASSETS)),
-						modContainer,
+		FabricLoader.getInstance().getModContainer(OCG.MOD_ID).ifPresent(container ->
+				//~ if <26.1 'ResourceLoader.registerBuiltinPack' -> 'ResourceManagerHelper.registerBuiltinResourcePack'
+				ResourceLoader.registerBuiltinPack(
+						OCG.id(OCG.DEFAULT_RESOURCE_PACK),
+						container,
 						Component.literal("Oxidizable Copper Gear Default Pack"),
-						ResourcePackActivationType.ALWAYS_ENABLED
+						//~ if <26.1 'PackActivationType' -> 'ResourcePackActivationType'
+						PackActivationType.ALWAYS_ENABLED
 				)
 		);
 	}

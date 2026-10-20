@@ -11,8 +11,8 @@ import net.minecraft.world.item.ItemStack;
 
 public class CommonUtil {
 
-	public static ObjectBooleanPair<ItemStack> tryOxidize(ItemStack stack, long worldTime, RandomSource random, boolean copy) {
-		if (stack.is(ModTags.OXIDIZABLE) && !stack.has(ModDataComponents.WAXED) && worldTime % 1200 == 0) {
+	public static ObjectBooleanPair<ItemStack> tryOxidize(ItemStack stack, long gameTime, RandomSource random, boolean copy) {
+		if (stack.is(ModTags.OXIDIZABLE) && !stack.has(ModDataComponents.WAXED) && gameTime % 1200 == 0) {
 			int oxidation = getItemOxidation(stack);
 			if (oxidation < 3) {
 				float chanceModifier = stack.isDamageableItem() ? Mth.clampedMap(

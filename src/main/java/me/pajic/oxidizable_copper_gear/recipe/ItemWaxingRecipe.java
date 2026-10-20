@@ -3,25 +3,38 @@ package me.pajic.oxidizable_copper_gear.recipe;
 import me.pajic.oxidizable_copper_gear.registry.ModDataComponents;
 import me.pajic.oxidizable_copper_gear.registry.ModRecipeSerializers;
 import me.pajic.oxidizable_copper_gear.registry.ModTags;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
+//? >=26.1 {
+import com.mojang.serialization.MapCodec;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+//?} else {
+/*import net.minecraft.core.HolderLookup;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
+*///?}
+
 public class ItemWaxingRecipe extends CustomRecipe {
 
-    public ItemWaxingRecipe(CraftingBookCategory category) {
+    //? >=26.1 {
+    private static final ItemWaxingRecipe INSTANCE = new ItemWaxingRecipe();
+    public static final MapCodec<ItemWaxingRecipe> MAP_CODEC = MapCodec.unit(INSTANCE);
+    public static final StreamCodec<RegistryFriendlyByteBuf, ItemWaxingRecipe> STREAM_CODEC = StreamCodec.unit(INSTANCE);
+    //?} else {
+    /*public ItemWaxingRecipe(CraftingBookCategory category) {
         super(category);
     }
+    *///?}
 
     @Override
     public boolean matches(CraftingInput input, @NotNull Level level) {
-        if (input.size() != 2) {
+        if (input.ingredientCount() != 2) {
             return false;
         } else {
             boolean hasWaxableItem = false;
@@ -46,7 +59,7 @@ public class ItemWaxingRecipe extends CustomRecipe {
     }
 
     @Override
-    public @NotNull ItemStack assemble(CraftingInput input, @NotNull HolderLookup.Provider registries) {
+    public @NotNull ItemStack assemble(@NotNull CraftingInput input/*? <26.1 {*//*, @NotNull HolderLookup.Provider registries*//*?}*/) {
         ItemStack itemStack = ItemStack.EMPTY;
         for (int i = 0; i < input.size(); i++) {
             ItemStack itemStack2 = input.getItem(i);

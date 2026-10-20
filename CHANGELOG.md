@@ -1,2 +1,6 @@
-- Updated to Minecraft 1.21.11.
-- Added oxidation to copper spears.
+- Ported to Minecraft 26.1.x, 26.2 and 26.3.
+- Added oxidation to copper nautilus armor.
+- Added oxidized armor textures for baby mobs.
+- Fixed a bunch of bugs with waxing and dewaxing recipes.
+- Fixed a few minor bugs with oxidation ticking.
+- The default data pack can now be disabled on NeoForge.

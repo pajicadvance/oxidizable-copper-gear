@@ -14,8 +14,8 @@ import org.spongepowered.asm.mixin.Mixin;
 public class ItemMixin {
 
     @WrapMethod(method = "inventoryTick")
-    private void oxidizePlayerCopperGear(ItemStack stack, ServerLevel level, Entity entity, EquipmentSlot slot, Operation<Void> original) {
-        CommonUtil.tryOxidize(stack, level.getDayTime(), level.getRandom(), false);
-        original.call(stack, level, entity, slot);
+    private void oxidizePlayerCopperGear(ItemStack itemStack, ServerLevel level, Entity owner, EquipmentSlot slot, Operation<Void> original) {
+        CommonUtil.tryOxidize(itemStack, level.getGameTime(), level.getRandom(), false);
+        original.call(itemStack, level, owner, slot);
     }
 }

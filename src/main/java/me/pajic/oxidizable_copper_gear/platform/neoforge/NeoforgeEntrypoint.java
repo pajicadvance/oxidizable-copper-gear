@@ -3,7 +3,6 @@ package me.pajic.oxidizable_copper_gear.platform.neoforge;
 //? neoforge {
 
 /*import me.pajic.oxidizable_copper_gear.OCG;
-import me.pajic.oxidizable_copper_gear.platform.Platform;
 import me.pajic.oxidizable_copper_gear.registry.ModDataComponents;
 import me.pajic.oxidizable_copper_gear.registry.ModRecipeSerializers;
 import me.pajic.oxidizable_copper_gear.registry.ModTags;
@@ -31,11 +30,11 @@ public class NeoforgeEntrypoint {
 	@SubscribeEvent
 	private static void initDefaultDataPack(AddPackFindersEvent event) {
 		event.addPackFinders(
-				OCG.id(OCG.xplat().packPath(Platform.VersionedPackType.DATA)),
+				OCG.id("resourcepacks/" + OCG.DEFAULT_DATA_PACK),
 				PackType.SERVER_DATA,
 				Component.literal("Oxidizable Copper Gear Default Pack"),
 				PackSource.BUILT_IN,
-				true,
+				false,
 				Pack.Position.TOP
 		);
 	}

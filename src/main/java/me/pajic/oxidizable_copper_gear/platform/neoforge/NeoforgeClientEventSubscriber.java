@@ -3,7 +3,6 @@ package me.pajic.oxidizable_copper_gear.platform.neoforge;
 //? neoforge {
 
 /*import me.pajic.oxidizable_copper_gear.OCG;
-import me.pajic.oxidizable_copper_gear.platform.Platform;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.Pack;
@@ -19,7 +18,7 @@ public class NeoforgeClientEventSubscriber {
 	@SubscribeEvent
 	private static void initDefaultResourcePack(AddPackFindersEvent event) {
 		event.addPackFinders(
-				OCG.id(OCG.xplat().packPath(Platform.VersionedPackType.ASSETS)),
+				OCG.id("resourcepacks/" + OCG.DEFAULT_RESOURCE_PACK),
 				PackType.CLIENT_RESOURCES,
 				Component.literal("Oxidizable Copper Gear Default Pack"),
 				PackSource.BUILT_IN,

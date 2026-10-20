@@ -1,7 +1,6 @@
-package me.pajic.oxidizable_copper_gear.mixin;
+package me.pajic.oxidizable_copper_gear.mixin.client;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import me.pajic.oxidizable_copper_gear.util.ClientUtil;
 import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.resources.ResourceKey;
@@ -12,7 +11,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-@MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
 @Mixin(HumanoidArmorLayer.class)
 public class HumanoidArmorLayerMixin {
 

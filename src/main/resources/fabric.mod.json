@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "id": "${id}",
-  "name": "${name}",
   "version": "${version}",
+  "name": "${name}",
+  "description": "${description}",
   "authors": ["${authors}"],
   "contributors": ["${contributors}"],
   "contact": {
@@ -17,19 +18,13 @@
       }
     }
   },
-  "description": "${description}",
-  "icon": "icon.png",
   "license": "${license}",
+  "icon": "icon.png",
   "environment": "*",
-  "entrypoints": {
-    "main": [
-      "${group}.${id}.platform.fabric.FabricEntrypoint"
-    ],
-    "client": [
-      "${group}.${id}.platform.fabric.FabricClientEntrypoint"
-    ]
-  },
+  "entrypoints": {},
   "mixins": [
     "${id}.mixins.json"
-  ],${dependencies}
+  ],
+  "depends": {},
+  "suggests": {}
 }

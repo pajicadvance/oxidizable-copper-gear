@@ -1,0 +1,59 @@
+# general
+mod.id = "oxidizable_copper_gear"
+mod.name = "Oxidizable Copper Gear"
+mod.group = "me.pajic"
+mod.version = "1.3.0"
+mod.description = "Adds oxidation and waxing mechanics to copper tools and armor"
+mod.authors = "pajic, Moonkey"
+mod.contributors = ""
+mod.license = "MIT"
+
+# links
+mod.sources_url = "https://github.com/pajicadvance/oxidizable-copper-gear"
+mod.homepage_url = "https://modrinth.com/mod/oxidizable-copper-gear"
+mod.issues_url = "https://github.com/pajicadvance/oxidizable-copper-gear/issues"
+mod.discord_url = "https://discord.gg/5RkzS66zWb"
+
+# publishing
+publish.modrinth = "sb4B6v2K"
+publish.curseforge = "1349654"
+publish.env.mr = "CLIENT_AND_SERVER" #https://modmuss50.github.io/mod-publish-plugin/platforms/modrinth/#all-options
+publish.env.cf.client = true
+publish.env.cf.server = true
+publish.dry_run = false
+
+# loom
+loomx.loom_version = "1.18-SNAPSHOT"
+
+# dependencies
+loader.fabric = "0.19.5"
+dev.runtime_optionals = []
+
+[fabric]
+dep.fabric-api.coords = "net.fabricmc.fabric-api:$id:$version"
+
+[neoforge]
+
+
+["1.21.11"]
+mod.mc_releases = ["1.21.11"]
+loader.neo = "21.11.42"
+
+[fabric."1.21.11"]
+mod.mc_compat = "1.21.11"
+required.fabric-api = "0.141.4+1.21.11"
+
+[neoforge."1.21.11"]
+mod.mc_compat = "[1.21.11, 1.22)"
+
+
+["26.1"]
+mod.mc_releases = ["26.1", "26.1.1", "26.1.2", "26.2", "26.3"]
+loader.neo = "26.1.2.122"
+
+[fabric."26.1"]
+mod.mc_compat = ">=26.1"
+required.fabric-api = "0.155.3+26.1.2"
+
+[neoforge."26.1"]
+mod.mc_compat = "[26.1,)"

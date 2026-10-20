@@ -4,5 +4,14 @@
     "pack_format": 69,
     "min_format": 69,
     "max_format": 9999
+  },
+  "overlays": {
+    "entries": [
+      {
+        "min_format": 84,
+        "max_format": 9999,
+        "directory": "overlay_26_1"
+      }
+    ]
   }
 }
